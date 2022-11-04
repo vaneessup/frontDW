@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -8,7 +9,8 @@ import { ServiceService } from '../service.service';
 })
 export class RegisterComponent  {
 
-  constructor(public ServiceService: ServiceService) { }
+  constructor(public ServiceService: ServiceService,
+    public router: Router) { }
 
   email: any;
   password: any;
@@ -17,8 +19,12 @@ export class RegisterComponent  {
 
   register() {
     const user = { email: this.email, password: this.password };
-    this.ServiceService.register(user).subscribe(data => {
-      console.log(data);
+    this.ServiceService.register(user).subscribe( data => {
+      this.ServiceService.setToken(data.id);
+      this.router.navigateByUrl('/');
+    },
+    error => {
+      console.log(error);
     });
     }
 
