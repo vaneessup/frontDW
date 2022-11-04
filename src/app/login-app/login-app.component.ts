@@ -1,7 +1,8 @@
-import { HttpErrorResponse } from '@angular/common/http';
+
 import { Component, Injectable, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { Router } from '@angular/router';
+import { HomeComponent } from '../home/home.component';
 
 
 @Injectable({
@@ -13,24 +14,24 @@ import { Router } from '@angular/router';
   templateUrl: './login-app.component.html',
   styleUrls: ['./login-app.component.css']
 })
-export class LoginAppComponent {
+export class LoginAppComponent implements OnInit {
   email: any;
   password: any;
 
   constructor(public ServiceService: ServiceService,
     public router: Router) { }
 
+  ngOnInit(): void {
+    this.ServiceService.getdata().subscribe(datos => {
+      console.log(datos)
+    })
+  }
+
 
 
  login(){
-  const user = {email: this.email, password: this.password};
-  this.ServiceService.login(user).subscribe(data => {
-    this.ServiceService.setToken(data.id);
-    this.router.navigateByUrl('/');
-    console.log(data);
-  }, error => {
-    console.log(error);
-  });
+  this.router.navigateByUrl('/home')
+  console.log('NO HACE NADA')
   
  }
 }

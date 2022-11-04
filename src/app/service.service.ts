@@ -11,9 +11,9 @@ export class ServiceService {
   constructor(private http: HttpClient,
     private cookies: CookieService) { }
 
-  // getdata(): Observable<any>{
-  //   return this.http.get("http://ec2-35-173-217-243.compute-1.amazonaws.com/api/GetUsuarios");
-  // }
+  getdata(): Observable<any>{
+    return this.http.get("http://ec2-35-173-217-243.compute-1.amazonaws.com/api/GetUsuarios");
+  }
 
   
   // deleteUser(): Observable<any>{
@@ -22,7 +22,8 @@ export class ServiceService {
   // }
 
   login(user:any):Observable<any>{
-    return this.http.post("http://ec2-35-173-217-243.compute-1.amazonaws.com/api/PostUsuario", user);
+
+    return this.http.post("https://ec2-35-173-217-243.compute-1.amazonaws.com/api/PostUsuario", user);
   }
 
   register(user:any):Observable<any>{
