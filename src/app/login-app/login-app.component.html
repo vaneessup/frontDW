@@ -1,0 +1,42 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="sidenav">
+         <div class="login-main-text">
+            <h2>Aplicación<br>Página de Inicio</h2>
+            <p>Debes iniciar sesión para ingresar.</p>
+            <p>Si no tienes una cuenta, REGISTRATE!</p>
+         </div>
+      </div>
+      <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+               <form>
+                  <div class="custom-form">
+                     <label>EMAIL</label>
+                     <input
+                     type="email"
+                     [(ngModel)]="email"
+                     name="email"
+                     placeholder="Email"
+                     required="required"
+                   >
+                  </div>
+                  <div class="form-group">
+                     <label>CONTRASEÑA</label>
+                     <input
+                     type="password"
+                     [(ngModel)]="password"
+                     name="password"
+                     placeholder="Password"
+                     required="required"
+                   />
+                  </div>
+                  <button type="submit" class="btn btn-primary" (click)="login()">Iniciar</button>
+                  <button type="submit" class="btn btn-secondary">Registrarme</button>
+               </form>
+            </div>
+         </div>
+      </div>
