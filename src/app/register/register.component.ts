@@ -9,23 +9,14 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent  {
 
-  constructor(public ServiceService: ServiceService,
-    public router: Router) { }
-
   email: any;
   password: any;
   confirmPassword: any;
-  passwordError: boolean = false
+
+  constructor() {}
 
   register() {
-    const user = { email: this.email, password: this.password };
-    this.ServiceService.register(user).subscribe( data => {
-      this.ServiceService.setToken(data.id);
-      this.router.navigateByUrl('/');
-    },
-    error => {
-      console.log(error);
-    });
-    }
-
+    console.log(this.email);
+    console.log(this.password);
+  }
 }
